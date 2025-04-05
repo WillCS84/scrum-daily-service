@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model collaborator {
+  id_collaborator             String      @id @default(cuid()) @map("id_colaborador")
+  name                        String
+  email                       String      @unique
+  phone                       String?
+  password                    String
+  accessToken                 String?
+  accessLevel                 AccessLevel @default(USER)
+  id_departament_collaborator Int
+  id_profession_collaborator  Int
+  id_accessLevel_collaborator Int
+
+  department     department   @relation(fields: [id_departament_collaborator], references: [id_departament])
+  profession     profession   @relation(fields: [id_profession_collaborator], references: [id_profession])
+  accessLevelRef access_level @relation(fields: [id_accessLevel_collaborator], references: [id_accessLevel])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("collaborator")
+}
+
+model department {
+  id_departament Int            @id @default(autoincrement())
+  name           String
+  collaborators  collaborator[]
+}
+
+model profession {
+  id_profession Int            @id @default(autoincrement())
+  name          String
+  collaborators collaborator[]
+}
+
+model access_level {
+  id_accessLevel Int            @id @default(autoincrement())
+  levelName      AccessLevel    @unique
+  collaborators  collaborator[]
+}
+
+enum AccessLevel {
+  ADMIN
+  MANAGER
+  USER
+}
