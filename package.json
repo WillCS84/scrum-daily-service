@@ -9,7 +9,7 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "init:dev": "prisma db push && npm run seed",
+    "init:dev": "prisma db push && npm run seed && nest start --watch",
     "start:dev": "cross-env NODE_ENV=development && ts-node start-dev.js",
     "start:debug": "nest start --debug --watch",
     "prestart:prod": "npm run seed",
