@@ -6,8 +6,8 @@ import { CollaboratorsController } from './modules/collaborators/collaborators.c
 import { CollaboratorsModule } from './modules/collaborators/collaborators.module';
 
 @Module({
-  imports: [CollaboratorsModule],
-  controllers: [AppController, CollaboratorsController],
-  providers: [AppService, CollaboratorsService],
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

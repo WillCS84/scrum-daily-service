@@ -16,16 +16,7 @@ export class CreateCollaboratorDto {
   id_collaborator: string;
 
   @IsString()
-  name: string;
-
-  @IsEmail()
-  email: string;
-
-  @IsOptional()
-  @IsString()
-  @IsPhoneNumber()
-  @IsMobilePhone()
-  phone?: string;
+  userId: string;
 
   @IsString()
   @MinLength(6)
@@ -34,10 +25,6 @@ export class CreateCollaboratorDto {
   @IsOptional()
   @IsString()
   accessToken: string;
-
-  @IsOptional()
-  @IsEnum(AccessLevel)
-  accessLevel?: AccessLevel;
 
   @IsOptional()
   @IsNumber()

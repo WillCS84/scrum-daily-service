@@ -12,6 +12,29 @@ services:
       - '3306:3306'
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  app:
+    build: .
+    container_name: nestjs-app
+    restart: always
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app # Monta o diretório do projeto no container
+
+    ports:
+      - '3000:3000' # Exponha a porta do NestJS
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - mysql # A aplicação depende do MySQL
+    networks:
+      - app-network
 
 volumes:
   mysql_data:
+
+networks:
+  app-network:
+    driver: bridge
