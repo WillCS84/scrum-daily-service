@@ -1,11 +1,6 @@
-import {
-  ConflictException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateCollaboratorDto } from './collaboratorsDTO/create.collaborator.dto';
-import * as bcrypt from 'bcrypt';
 
 type FilterDto = { id_collaborator: string } | { email: string };
 

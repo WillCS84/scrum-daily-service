@@ -31,6 +31,14 @@
 $ npm install
 ```
 
+## Authorization file
+
+# project root
+
+```bash
+$ chmod +x docker-up.sh
+```
+
 ## Compile and run the project
 
 ```bash
@@ -39,6 +47,12 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+```
+
+## generate db schema
+
+```bash
+$ npx prisma migrate dev --name init
 ```
 
 ## Run tests

@@ -1,14 +1,4 @@
-import {
-  IsEmail,
-  IsOptional,
-  IsString,
-  MinLength,
-  IsEnum,
-  IsPhoneNumber,
-  IsMobilePhone,
-  IsNumber,
-} from 'class-validator';
-import { AccessLevel } from '@prisma/client';
+import { IsOptional, IsString, MinLength, IsNumber } from 'class-validator';
 
 export class CreateCollaboratorDto {
   @IsOptional()

@@ -8,4 +8,4 @@ else
   echo "⚡ MySQL já está em execução."
 fi
 
-npm run init:dev
+npm run start:db

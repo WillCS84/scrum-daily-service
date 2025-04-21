@@ -9,7 +9,8 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "init:dev": "prisma db push && npm run seed && nest start --watch",
+    "start:db": "prisma db push && npm run seed && npm run init:dev",
+    "init:dev": "nest start --watch",
     "start:dev": "cross-env NODE_ENV=development && ts-node start-dev.js",
     "start:debug": "nest start --debug --watch",
     "prestart:prod": "npm run seed",
@@ -33,7 +34,8 @@
     "class-validator": "^0.14.1",
     "dotenv": "^16.5.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",

@@ -9,7 +9,7 @@ datasource db {
 
 // Superclasse User - Contém os dados comuns a todos os usuários
 model User {
-  id        String   @id @default(cuid()) @map("id_user")
+  id_user   String   @id @default(cuid()) @map("id_user")
   name      String
   email     String   @unique
   phone     String?
@@ -50,7 +50,7 @@ model Collaborator {
   id_accessLevel  Int
 
   // Relacionamentos
-  user        User        @relation(fields: [userId], references: [id]) // Relacionamento com User
+  user        User        @relation(fields: [userId], references: [id_user]) // Relacionamento com User
   accessLevel AccessLevel @relation(fields: [id_accessLevel], references: [id_accessLevel])
   department  Department  @relation(fields: [id_departament], references: [id_departament])
   profession  Profession  @relation(fields: [id_profession], references: [id_profession])

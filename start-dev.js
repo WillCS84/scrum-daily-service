@@ -5,22 +5,20 @@ const chalk = require('chalk');
 
 const isWindows = os.platform() === 'win32';
 
-// Defina o caminho do script conforme a plataforma
 const script = isWindows ? 'docker-up.sh' : 'bash ./docker-up.sh';
 
 console.log(chalk.cyan('🌍 Detectando sistema operacional...'));
 console.log(chalk.yellow(`📦 Sistema: ${os.platform()}`));
 console.log(chalk.magenta(`🚀 Executando: ${script}`));
 
-// Usando spawn para rodar o script e capturar os logs em tempo real
 const child = spawn(script, { shell: true });
 
 child.stdout.on('data', (data) => {
-  console.log(chalk.green(data.toString().trim())); // Exibe a saída do script em tempo real
+  console.log(chalk.green(data.toString().trim()));
 });
 
 child.stderr.on('data', (data) => {
-  console.error(chalk.red(data.toString().trim())); // Exibe erros em tempo real
+  console.error(chalk.red(data.toString().trim()));
 });
 
 child.on('close', (code) => {
